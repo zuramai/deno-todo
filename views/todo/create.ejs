@@ -1,0 +1,20 @@
+<%- await include("views/partials/header.ejs") %>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">Todo List</div>
+        <div class="card-body">
+            <form action="/todo" method="post" enctype='multipart/form-data'>
+                <div class="form-group">
+                    <label for="">Task Name</label>
+                    <input type="text" name="task" id="" class='form-control'>
+                </div>
+                <div class="form-group">
+                    <label for="">Time</label>
+                    <input type="time" name="time" id="" class='form-control'>
+                </div>
+                <button type="submit" class='btn btn-primary float-right mb-2'>Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+<%- await include("views/partials/footer.ejs") %>

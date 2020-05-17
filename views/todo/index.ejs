@@ -1,0 +1,38 @@
+
+        <%- await include("views/partials/header.ejs") %>
+        <div class="container mt-5">
+            <div class="card">
+                <div class="card-header">Todo List</div>
+                <div class="card-body">
+                    <a href="/todo/create" class='btn btn-primary float-right mb-2'>Add</a>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Task</th>
+                                    <th>Time</th>
+                                    <th>Action</th>
+                                </tr>
+                                <% users.forEach(function(user, index){ %>
+                                <tr>
+                                    <td><%= index+1 %></td>
+                                    <td><%= user.task %></td>
+                                    <td><%= user.time %></td>
+                                    <td >
+                                        <div class='d-inline-flex'>
+                                            <a href="/todo/edit/<%= user._id['$oid'] %>" class='btn btn-warning mr-2'>Edit</a>
+                                            <form action="/todo/<%= user._id['$oid'] %>" method="post">
+                                                <button type="submit" class='btn btn-danger'>Delete</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- await include("views/partials/footer.ejs") %>
